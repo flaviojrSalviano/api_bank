@@ -7,16 +7,13 @@
 # General application configuration
 use Mix.Config
 
-app_hostname = System.fetch_env("APP_HOSTNAME") || "localhost"
-secret_key_base = System.fetch_env("SECRET_KEY_BASE") || ""
-
 config :api_bank,
   ecto_repos: [ApiBank.Repo]
 
 # Configures the endpoint
 config :api_bank, ApiBankWeb.Endpoint,
-  url: [host: app_hostname],
-  secret_key_base: secret_key_base,
+  url: [host: "localhost"],
+  secret_key_base: "QBLCBkeDzblE+tlP/M4F4KfZTOpXRU1bONGU4+27xNvNvVdeLPhq4dJuFbwWh85C",
   render_errors: [view: ApiBankWeb.ErrorView, accepts: ~w(json)],
   pubsub: [name: ApiBank.PubSub, adapter: Phoenix.PubSub.PG2]
 

@@ -7,10 +7,10 @@ db_host = System.fetch_env("DB_HOST") || "database"
 
 # Configure your database
 config :api_bank, ApiBank.Repo,
-  username: db_user,
-  password: db_password,
-  database: "api_bank_dev",
-  hostname: db_host,
+  username: "postgres",
+  password: "postgres",
+  database: "test_dev",
+  hostname: "db",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
@@ -21,7 +21,7 @@ config :api_bank, ApiBank.Repo,
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :api_bank, ApiBankWeb.Endpoint,
-  http: [port: app_port],
+  http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,

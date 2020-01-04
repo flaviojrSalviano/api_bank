@@ -6,7 +6,7 @@ then
     echo "You must run this script as root"
     exit 0
 fi
-
-echo "Database creating"
+echo "Carregando dependencias"
+mix deps.get
+echo "Criando banco de dados"
 mix ecto.create
-echo "Data-base created"

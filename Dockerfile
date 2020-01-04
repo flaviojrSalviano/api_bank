@@ -10,5 +10,9 @@ RUN mix local.hex --force \
  && apt-get install -y inotify-tools \
  && mix local.rebar --force
 
-RUN mkdir /api
+RUN mkdir -p /api
 WORKDIR /api
+
+EXPOSE 4000
+
+CMD ["mix", "phx.server"]
