@@ -1,0 +1,22 @@
+version: '3'
+services:
+  api:
+    image: api
+    container_name: api-bank
+    restart: always
+    build: .
+    ports:
+      - "4000:4000"
+    volumes:
+      - .:/api
+    depends_on:
+      - db
+  db:
+    image: postgres:10
+    container_name: db-bank
+    command: -c timezone=America/Sao_Paulo
+    restart: always
+    ports:
+        - "5432:5432"
+    volumes:
+        - "./volumes/postgres:/var/lib/postgresql/data"
